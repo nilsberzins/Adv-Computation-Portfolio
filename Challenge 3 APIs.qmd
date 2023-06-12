@@ -18,7 +18,6 @@ data <- fromJSON(rawToChar(res$content))
 cities <- unlist(data, use.names = FALSE)
 ```
 
-
 ```{r Get Cities Scores, cache=TRUE}
 
 base_url <- "https://api.teleport.org/api/urban_areas/slug:"
@@ -39,6 +38,6 @@ for(i in 1:length(cities)) {
 }
 
 names(scores_list) <- cities
-
 ```
+
 

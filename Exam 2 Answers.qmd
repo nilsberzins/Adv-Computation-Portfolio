@@ -1,0 +1,208 @@
+---
+title: "Midterm 2 Code and Answers"
+format: pdf
+editor: visual
+---
+
+```{r}
+library(forecast)
+library(here)
+library(readxl)
+```
+
+```{r}
+dat <- read_excel(here::here("Course Files/Data for Exam 2.xlsx"), sheet = "Sales")
+```
+
+##Prob 2 ###A
+
+```{r}
+y <- dat$Sales
+plot(y)
+
+z <- diff(y, differences = 1)
+plot(z)
+```
+
+###B
+
+```{r}
+acf(z)
+pacf(z)
+```
+
+-   AR(2), there is a sudden jump towards 0 in the PACF whereas in ACF there is a gradual oscillation towards 0
+
+-   MA(3), could claim that ACF has 3 non-zero values and that PACF declines towards 0, changed to MA(2) since the 3rd MA value was not significant
+
+-   ARMA(1,1), could claim that both acf and pacf are gradually declining towards 0
+
+```{r}
+mod1 <- Arima(y, order = c(2, 1, 0)); summary(mod1)
+
+mod2 <- Arima(y, order = c(0,1,2)); summary(mod2)
+
+mod3 <- Arima(y, order = c(1,1,1)); summary(mod3)
+```
+
+###C
+
+```{r}
+e1 <- residuals(mod1)
+n1 <- length(e1)
+k1 <- 2 #for p
+Box.test(e1, type = "Ljung", lag = 8, fitdf = k1)
+
+e2 <- residuals(mod2)
+n2 <- length(e2)
+k2 <- 2 #for p
+Box.test(e2, type = "Ljung", lag = 8, fitdf = k2)
+
+e3 <- residuals(mod3)
+n3 <- length(e3)
+k3 <- 2 #for p
+Box.test(e3, type = "Ljung", lag = 8, fitdf = k3)
+```
+
+###D
+
+```{r}
+AIC1 <- exp(2*k1/n1) * (sum(e1^2))/n1; AIC1
+BIC1 <- (n1^(k1/n1)) * (sum(e1^2))/n1; BIC1
+
+AIC2 <- exp(2*k2/n2) * (sum(e2^2))/n2; AIC2
+BIC2 <- (n2^(k2/n2)) * (sum(e2^2))/n2; BIC2
+
+AIC3 <- exp(2*k3/n3) * (sum(e3^2))/n3; AIC3
+BIC3 <- (n3^(k3/n3)) * (sum(e3^2))/n3; BIC3
+
+```
+
+Model 2 (the MA(2) model), appears to be the best model in both the computer-generated and hand-calculated AIC/BIC values.
+
+###E
+
+```{r}
+forecast(mod2, h = 3)
+```
+
+##Prob 3 ###A
+
+```{r}
+dat <- read_excel("C:/Users/Nils Berzins/OneDrive/Desktop/Cal Poly/2022-2023/Spring Quarter/ECON 406/Course Files/Data for Exam 2.xlsx", sheet = "Googl")
+```
+
+```{r}
+y <- dat$Price
+
+ty <- y[1:180]
+vy <- y[181:220]
+```
+
+```{r}
+diff_series <- diff(ty, differenes = 1)
+log_diff_series <- diff(log(ty), differences = 1)
+
+plot(diff_series)
+plot(log_diff_series)
+```
+
+```{r}
+acf(diff_series)
+pacf(diff_series)
+```
+
+-   MA(1)
+
+-   ARMA(1, 7)
+
+-   
+
+```{r}
+acf(log_diff_series)
+pacf(log_diff_series)
+```
+
+```{r Model 1 - Differenced Series}
+
+Mod1 <- Arima(ty, order = c(0, 1, 1)); summary(Mod1)
+
+Mod2 <- Arima(ty, order = c(7, 1, 1)); summary(Mod2)
+
+Mod2b <- Arima(ty, order = c(7, 1, 1), fixed = c(0, 0, 0, 0, 0, 0, NA, 0)) 
+summary(Mod2b)
+```
+
+```{r}
+e1 <- residuals(Mod1)
+n1 <- length(e1)
+k1 <- 1 #for p
+Box.test(e1, type = "Ljung", lag = 12, fitdf = k1)
+
+e2 <- residuals(Mod2)
+n2 <- length(e2)
+k2 <- 8 # 1 for p and 7 for q
+Box.test(e2, type = "Ljung", lag = 12, fitdf = k2)
+
+e2b <- residuals(Mod2b)
+n2b <- length(e2b)
+k2b <- 1 #for q
+Box.test(e2b, type = "Ljung", lag = 12, fitdf = k2b)
+```
+
+```{r Model 2 - Log Differenced Series}
+Mod1l <- Arima(log(ty), order = c(0, 1, 1)); summary(Mod1)
+
+Mod2l <- Arima(log(ty), order = c(7, 1, 1)); summary(Mod2)
+
+Mod2bl <- Arima(log(ty), order = c(7, 1, 1), fixed = c(0, 0, 0, 0, 0, 0, NA, 0)) 
+summary(Mod2b)
+
+```
+
+```{r}
+e1l <- residuals(Mod1l)
+n1l <- length(e1l)
+k1l <- 1 #for p
+Box.test(e1l, type = "Ljung", lag = 12, fitdf = k1l)
+
+e2l <- residuals(Mod2l)
+n2l <- length(e2l)
+k2l <- 8 # 1 for p and 7 for q
+Box.test(e2l, type = "Ljung", lag = 12, fitdf = k2l)
+
+e2bl <- residuals(Mod2bl)
+n2bl <- length(e2bl)
+k2bl <- 1 #for q
+Box.test(e2bl, type = "Ljung", lag = 12, fitdf = k2bl)
+```
+
+-   the constrained version of both tests is the preferred version
+
+###B
+
+```{r}
+AIC2b <- exp(2*k2b/n2b) * (sum(e2b^2))/n2b; AIC2b
+BIC2b <- (n2b^(k2b/n2b)) * (sum(e2b^2))/n2b; BIC2b
+
+AIC2bl <- exp(2*k2bl/n2bl) * (sum(e2bl^2))/n2bl; AIC2bl
+BIC2bl <- (n2bl^(k2b/n2bl)) * (sum(e2bl^2))/n2bl; BIC2bl
+```
+
+```{r}
+refit2b <- Arima(vy, model = Mod2b)
+accuracy(refit2b)
+
+refit2bl <- Arima(log(vy), model = Mod2bl)
+accuracy(refit2bl)
+```
+
+###C
+
+```{r}
+mod2bl_full <- Arima(log(y), order = c(7, 1, 1), fixed = c(0, 0, 0, 0, 0, 0, NA, 0)) 
+
+f2bl <- forecast(mod2bl_full, h = 2)
+
+exp(f2bl$mean)
+```
