@@ -1,0 +1,30 @@
+Energy Output Per State Tracker App
+
+The Data and Our Vision.
+Sourced data was on energy output of each state on different months and years. We decided to create a tracker with this data, 
+so that finding energy usage for states during specific times and from specific producers could be organized and visualized in 
+a clean map format. Additionally, we wanted to create a way for users to be able to predict future energy usages of states 
+given the current data. 
+
+Data cleaning.
+Sourced data was split into multiple sheets in a .xlsx file. Using the purrr package, we were able to merge all the sheets into
+one table. Another issue we came upon was the issue with different column formatting on each sheet, where certain years would 
+have different names for the same information. Using the coalesce() function, we were able to merge all that information into one
+tidy column. Several other data cleansing techniques were utilized to the make the table more visualization ready, such as changing
+the names of certain columns to be shorter and converting certain columns to a specific data type. We also only wanted data for the 
+states, so we got rid of all the observations regarding the US as a whole and DC.
+
+Files.
+Although there are many files, the three files that are important for this project are app.r, R App Script.qmd, and
+generation_monthly.xlsx. The R file, app.r, contains the app itself. The qmd file is almost a "rough draft" of the app, as we wanted
+to make sure the code worked properly without having to test it within the app itself. Finally, the xlsx is just the data for this
+project.
+
+Capabilities.
+This app is able to show energy outputs of different states in a clean leaflet format. Simply input a year, month, type of producer,
+and energy source, and watch as all the states are displayed with each state being colored in a specific manner to represent how much
+energy they used. Additionally, hovering over each state will give a specific number to how much energy output they had in that time
+frame specifically. And although the sourced data covers a wide variety of times and energy producers, some information will be missing,
+so those states will be colored gray to represent this. Furthermore, our app has an option to predict future data based on our 
+current data. Using a linear model, our app can predict energy outputs for future years on different months, producers and energy sources,
+just as if we had that data collected already. 
