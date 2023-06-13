@@ -215,7 +215,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
-**Project 1 Shiny App Summary and Capabilities**
+[**Project 1 Shiny App Summary and Capabilities**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/app%20(1).txt)
 
 [**Project 3 Model Summary and Changeable Inputs Description**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/For%20the%20Elbow%20Method%20Graph%20(1).txt)
 
@@ -224,7 +224,7 @@ portfolio_levels <- portfolio_levels %>%
 ## \[TC-2\] Documentation:
 
 -   I provide ample documentation and tutorials for my custom functions.
--   I provide user-friendly guides for my tools and sofware
+-   I provide user-friendly guides for my tools and software
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
@@ -239,7 +239,11 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Again, not sure how this can be ranked above a 3. Seems standard for all assignments worked on this quarter
+[**Elbow Graph Project 3 Documentation**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Example of good commenting/documentation of the functions, their parameters, and their return values
+
+Dr. Bodwin provided some criticisms on the UX of our application, most notably that should a user open up our app blind, they wouldn't know what is going on within the app or where the data came from. I made small edits in our shiny app to add static text that summarizes the origins of the data and the purpose/functionality of the app.
+
+[**Project 1 App Description**](https://github.com/nberzinsCP/Project1-STAT431/commit/8363d88b4355c41f4b566b5ec4ecedfea6d94753)
 
 ------------------------------------------------------------------------
 
@@ -267,11 +271,13 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   When working with national energy output data set in the Shiny app project, I was not only able to convert our data set into a tidy one, but I believe I was able to do it in a way that recognized a pattern/consistency in the formatting of the data that then allowed for a more streamlined conversion to a tidy format (as seen when comparing to my group mates resolution).
+When working with national energy output data set in the Shiny app project, I was not only able to convert our data set into a tidy one, but I believe I was able to do it in a way that recognized a pattern/consistency in the formatting of the data that then allowed for a more streamlined conversion to a tidy format (as seen when comparing to my group mates resolution). I utilized the map_df() function to quickly read through every sheet (which represented one years worth of energy data) after having worked out some of the formatting issues in the sheets.
 
-    -   <https://github.com/nberzinsCP/Project1-STAT431/commit/fa077af4da97f08ba7c0c39e0ec3d7720674619f>
+[**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/commit/fa077af4da97f08ba7c0c39e0ec3d7720674619f)
 
-    -   Utilized the map_df() function to quickly read through every sheet (which represented one years worth of energy data) after having worked out some of the formatting issues in the sheets.
+In lab 2 when prompted to choose a messy/hard to understand graphic and create a better, cleaner version of the same data, I needed to significantly alter the formatting of the information provided by the respondents. Once the data was mutated into a more coder-friendly format, I was then able to apply the final alterations to prepare it to be input into a Leaflet map.
+
+[**Lab 2 Example**](https://github.com/Cal-Poly-Advanced-R/lab-2-visualization-gavinemartinez/commit/0bddb3582dbbfe3bc2f3d677fbffbddea56db751)
 
 ------------------------------------------------------------------------
 
@@ -293,7 +299,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Similar justification and code to that being referenced above
+Similar justification to that which was found in DM-1
 
 ------------------------------------------------------------------------
 
@@ -304,7 +310,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 0 #TBD
+my_level <- 3
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "DM-3", 
@@ -315,7 +321,9 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   
+As mentioned above, to reinforce my understanding of APIs and collecting data from them, I took on reading off the city score data information from Teleport's API.
+
+[**Challenge 3 API Code**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Challenge%203%20APIs.qmd#L4)
 
 ------------------------------------------------------------------------
 

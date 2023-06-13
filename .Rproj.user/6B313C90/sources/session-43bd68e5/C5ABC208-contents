@@ -1,0 +1,103 @@
+---
+title: "Lab 3"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
+library(here)
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(leaflet)
+library(htmlwidgets)
+library(lubridate)
+```
+
+```{r}
+capital_names <- read.table(here("state_capitals_name.txt"),
+                       col.names = c("state", "capital"))
+coordinates <- read.table(here("state_capitals_ll.txt"),
+                          col.names = c("state", "latitude", "longitude"))
+
+#Readjusting coordinates for North Dakota
+coordinates[coordinates$state=="ND", "latitude"] <- 46.8055
+coordinates[coordinates$state=="ND", "longitude"] <- -100.7877
+#Gets rid of "US" state value in coordinate dataset (I literally have no idea what this point is)
+coordinates <- coordinates %>%
+  filter(state != "US")
+
+capitals <- merge(capital_names, coordinates)
+
+root <- "https://api.g7vrd.co.uk/v1/satellite-passes"
+iss_norad_id <- 25544
+
+api_url <- function(latitude, longitude) {
+  paste0(root, "/", iss_norad_id, "/", latitude, "/", longitude, ".json",
+         "?minelevation=20&hours=72")
+}
+
+capitals$api <- api_url(capitals$latitude, capitals$longitude)
+head(capitals[,c("state", "capital", "api")])
+```
+
+```{r}
+next3 <- function(url) {
+  res = GET(url)
+  data = fromJSON(rawToChar(res$content))
+  data$passes$tca[1:3]
+}
+
+passes_list <- lapply(capitals$api, next3)
+passes <- do.call(rbind, passes_list)
+capitals$pass1 <- passes[,1]
+capitals$pass2 <- passes[,2]
+capitals$pass3 <- passes[,3]
+
+capitals <- capitals %>%
+  mutate(pass1 = ymd_hms(pass1),
+         pass2 = ymd_hms(pass2),
+         pass3 = ymd_hms(pass3)) 
+
+capitals_pass1 <- capitals[order(capitals$pass1, decreasing = FALSE), ]
+capitals_pass2 <- capitals[order(capitals$pass1, decreasing = FALSE), ]
+capitals_pass3 <- capitals[order(capitals$pass1, decreasing = FALSE), ]
+
+head(capitals[,c("state", "capital", "pass1", "pass2", "pass3")])
+```
+
+## Mapping the Data and Drawing of the ISS
+
+```{r}
+myIcon <- makeIcon(iconUrl = "https://www.pinclipart.com/picdir/middle/30-308967_clip-art-images-free-download.png",
+                   iconWidth = 50, iconHeight = 50,
+                   iconAnchorX = 25, iconAnchorY = 50)
+
+  leaflet() %>%
+  setView(-96, 37.8, 4)  %>%
+  addTiles() %>% 
+  addMarkers(lng = capitals$longitude, 
+             lat = capitals$latitude, 
+             icon = myIcon,
+             label = paste(capitals$capital,
+                           "First Pass:",
+                           strftime(capitals$pass1,
+                                    format = "%D:%H:%M:%S"),
+                           sep = " "),
+             popup = paste(capitals$capital, ", ", capitals$state, "<br>",
+                                  "First Pass:", strftime(capitals$pass1, format = "%D:%H:%M:%S"), "<br>",
+                                  "Second Pass: ", strftime(capitals$pass2, format = "%D:%H:%M:%S"), "<br>",
+                                  "Third Pass: ", strftime(capitals$pass3, format = "%D:%H:%M:%S"))) %>%
+  addProviderTiles("MapBox", options = providerTileOptions(
+    id = "mapbox.light",
+    accessToken = Sys.getenv('MAPBOX_ACCESS_TOKEN'),
+    minZoom = 3,
+     maxZoom = 6)) %>%
+  addPolylines(lat = capitals_pass1$latitude, lng = capitals_pass1$longitude, color = "#003f5c")
+```
+
+
