@@ -1,0 +1,46 @@
+---
+title: "Week 5 Course Code"
+format: html
+editor: visual
+---
+
+```{r}
+  library(usethis)
+```
+
+-   usethis package will be helpful for helping us creating our own packages, steps to take:
+    -   usethis::create_package("\~/Desktop/") -\> needed Onedrive
+    -   Edit DESCRIPTION
+    -   make "dev" folder
+        -   use_build_ignore
+        -   use_git_ignore
+    -   use_r to make script
+    -   Write Function
+        -   what it does
+        -   @params
+        -   @return
+        -   @export
+    -   Document Everything: Crtl + Shift + D
+    -   Bulid Package: Crtl + Shift + B\
+    -   As you work: Crtl + Shift + L
+    -   use_package("dplyr")
+        -   @import dplyr
+    -   OR dplyr:: in package code
+-   If you deliberately want a function to be secret, to access reference the package then use three colons (practice:::function)
+
+```{r}
+usethis::create_package("~/Onedrive/Desktop/practice")
+```
+
+##Unit Test
+
+-   use_test("function")
+-   tests -\> testthat -\> test-funname.R
+-   ctrl-shift-T
+
+```{r}
+test_that("multiplication works", {
+  expect_equal(2*2, 4)
+})
+
+```
