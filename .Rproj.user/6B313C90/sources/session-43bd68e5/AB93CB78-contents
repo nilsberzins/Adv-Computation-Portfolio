@@ -160,7 +160,9 @@ I also often take notes on Quarto in bullet format with interwoven code chunks f
 
 This quarter, because I didn't often work with Quarto or Markdown files, I didn't often need to work with echo, error, cache, etc., but last quarter in STAT 331 I often used them.
 
--   Reference: Any lab7-functions
+[**331-lab7 Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/lab7-functions-and-fish.qmd)
+
+[**331-Challenge7 Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/challenge7-functions-and-fish.qmd)
 
 ------------------------------------------------------------------------
 
@@ -182,7 +184,9 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Again, not sure how this can be ranked above a 3. Seems standard for all assignments worked on this quarter
+[**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/blob/main/app.R) - Code Split between Brandon and I
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Lines 123 and On
 
 ------------------------------------------------------------------------
 

@@ -78,7 +78,7 @@ As I feel will be the standard from now on, Chat GPT was integral in getting ove
 
 [**ChatGPT Example 2**](https://chat.openai.com/c/7e7fd6ba-a049-4cb0-8d03-ec996712b15c)
 
-Also finding inspiration on the internet from similar projects and using those as my own starting points occurred often this quarter. My most notable example had to have been during lab 8 when my aerospace buddies decided I needed to attempt to make art using lorenz attractors. I made sure to reference the skeleton of one of the suggested articles on this topic.
+Also finding inspiration on the internet from similar projects and using those as my own starting points occurred often this quarter. My most notable example had to have been during lab 8 when my aerospace buddies decided I needed to attempt to make art using Lorenz attractors. I made sure to reference the skeleton of one of the suggested articles on this topic.
 
 [**10 Million Points With ggplot clifford attractors**](https://fronkonstin.com/2017/11/07/drawing-10-million-points-with-ggplot-clifford-attractors/)
 
@@ -126,7 +126,9 @@ Although I only needed to locally load packages in Lab 2 this year, I'm referenc
 
 [**Exam 2 Questions**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Exam%202%20Answers.qmd)
 
-When working on Lab 4, my group decided that we wanted our R package to have our data files be present and accessible within the package. This lead to me needing to make my code r
+When working on Lab 4, my group decided that we wanted our R package to have our data files be present and accessible within the package. This lead to me needing to make my code reproducible for all of those who (theoretically) would want access to it. To make sure that any potential user would be able to access the data files they downloaded upon installation of the package, I used the system.file() function that automatically finds where the package was located in local directories, regardless of where the user has their files stored (find.package is called under the hood of system.file() after checking that the file exists using file.exists).
+
+[**Lab 4 Example**](https://github.com/BLauf/STAT431-project-2-master/commit/1bdc8b2c101ad4292882ca41880c84464dea76a9)
 
 ------------------------------------------------------------------------
 
@@ -137,7 +139,7 @@ When working on Lab 4, my group decided that we wanted our R package to have our
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 3 #demo of lab8 and project 2 
+my_level <- 3
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "RW-2", 
@@ -148,9 +150,19 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Most recent example being the art works and utilizing cache to automatically reload the memory/processing intensive graphics produced in lab 8.
+Only a few instances this quarter have I found myself rendering qmd files, but my recent and most notable example was for the Generative Art Lab. When running an art piece using Lorenz Attractors, there were originally 10 million data points leading to slow run times. Using cache = TRUE on that specific chunk of code stopped me from having to experience that 5+ min run time.
 
--   Rendering files didn't seem to be a super pertinent theme in the class as we often submitted R script files in packages
+[**Lab 8 Example**](https://github.com/nberzinsCP/GenerativeArt/blob/main/Lab_8_Generative_Art.qmd)
+
+I also often take notes on Quarto in bullet format with interwoven code chunks from lecture material
+
+-   Reference: Any of my weekly class notes
+
+This quarter, because I didn't often work with Quarto or Markdown files, I didn't often need to work with echo, error, cache, etc., but last quarter in STAT 331 I often used them.
+
+[**331-lab7 Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/lab7-functions-and-fish.qmd)
+
+[**331-Challenge7 Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/challenge7-functions-and-fish.qmd)
 
 ------------------------------------------------------------------------
 
@@ -172,7 +184,9 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Again, not sure how this can be ranked above a 3. Seems standard for all assignments worked on this quarter
+[**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/blob/main/app.R) - Code Split between Brandon and I
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Lines 123 and On
 
 ------------------------------------------------------------------------
 

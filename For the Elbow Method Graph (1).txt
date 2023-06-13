@@ -1,0 +1,5 @@
+For the Elbow Method Graph: 
+
+- The elbow method graph is a way for the user to manually decide how many cluster they should choose when doing kmeans clustering analysis. The algorith takes in the dataset the user would like to work with, the explanatory and response variable of interest, and the maximun number of clusters the program should try analyzing. 
+
+- The user has the ability to tweak the # of clusters run by the program to then be displayed on a plotly graph which allows them to see the exact within cluster sum of squares associated with a certain number of clusters. 
