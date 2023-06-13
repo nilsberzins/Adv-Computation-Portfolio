@@ -325,6 +325,10 @@ As mentioned above, to reinforce my understanding of APIs and collecting data fr
 
 [**Challenge 3 API Code**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Challenge%203%20APIs.qmd#L4)
 
+Although I did not find myself using webscraping on online tables and information beyond the practice assignments, I decided to webscrape the wikipedia page on webscraping.
+
+[**Webscraping Webscraping**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Webscraping%20Webscraping.R)
+
 ------------------------------------------------------------------------
 
 # Professional Visualization (PV):
@@ -350,7 +354,11 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   
+[**Project 2 Example**](https://github.com/BLauf/STAT431-project-2-master/blob/main/R/visualFunctions.R)
+
+Video of me working with ggplot: {{< video https://www.youtube.com/watch?v=5BzdgbUCypw >}}
+
+[**Lab 8 Example**](https://github.com/nberzinsCP/GenerativeArt/blob/main/Lab_8_Generative_Art.qmd)- Working with different geometrics in ggplot
 
 ------------------------------------------------------------------------
 
@@ -372,6 +380,8 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+Reference Justification Above
+
 ------------------------------------------------------------------------
 
 ## \[PV-3\] Dynamic visualizations
@@ -392,7 +402,11 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Reference leaflets produced for project 2, project 1, and lab 2
+[**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/blob/main/app.R) - Leaflet Code Produced in Shiny App
+
+[**Project 2 Example**](https://github.com/BLauf/STAT431-project-2-master/blob/main/R/visualFunctions.R) - Goal Scored Leaflet Map
+
+[**Project 3 Plotly Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Created a simple plotly graph to allow the user to see what the total WCSS was for each cluster combination
 
 ------------------------------------------------------------------------
 
