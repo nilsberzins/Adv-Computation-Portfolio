@@ -3,7 +3,7 @@
     "path": "C:/Users/nils/OneDrive/Desktop/Cal Poly/2022-2023/Spring Quarter/STAT 431/Portfolio/ReinforcementsForPortfolioWar/portfolio_template.qmd",
     "project_path": "portfolio_template.qmd",
     "type": "quarto_markdown",
-    "hash": "989887876",
+    "hash": "0",
     "contents": "",
     "dirty": true,
     "created": 1686617637604.0,
@@ -16,8 +16,8 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "22502:12766.6669921875",
-        "cursorPosition": "594,0",
+        "rmdVisualModeLocation": "23101:13538",
+        "cursorPosition": "619,0",
         "scrollLine": "0"
     },
     "folds": "",
@@ -25,7 +25,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1686716160814,
+    "last_content_update": 1686718852378,
     "read_only": false,
     "read_only_alternatives": []
 }
