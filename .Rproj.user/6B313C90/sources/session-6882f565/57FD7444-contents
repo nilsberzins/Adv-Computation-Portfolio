@@ -273,7 +273,7 @@ normality_check <- aov(regression, var.equal = FALSE)
 #qq_plot <- qqPlot(normality_check$residuals, 
 #       id = FALSE,
 #       main = "Normal Q-Q Plot of Residuals",
-#       xlab = "Normal Quantiles",
+#xlab = "Normal Quantiles",
 #       ylab = "Normality Check Residuals")
 
 ```

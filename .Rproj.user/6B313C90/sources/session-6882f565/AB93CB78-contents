@@ -88,6 +88,10 @@ Although I completed the APIs practice assignment and lab to a degree that I fee
 
 [**Challenge 3 API Code**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Challenge%203%20APIs.qmd#L4)
 
+Video of me debugging gradient descent code:
+
+{{< video https://www.youtube.com/watch?v=MpEPSdLZ4kk >}}
+
 ------------------------------------------------------------------------
 
 # Reproducible Workflow (RW):
@@ -402,11 +406,15 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+Although I hadn't used gganimate much (aside from the practice activities during week 2), last quarter my group mates and I decided it would be good to pursue a challenge in animating some of the graphs that we had created for our final project.
+
+[**331 Final Project gganimate**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Final%20Project.qmd)
+
 [**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/blob/main/app.R) - Leaflet Code Produced in Shiny App
 
 [**Project 2 Example**](https://github.com/BLauf/STAT431-project-2-master/blob/main/R/visualFunctions.R) - Goal Scored Leaflet Map
 
-[**Project 3 Plotly Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Created a simple plotly graph to allow the user to see what the total WCSS was for each cluster combination
+[**Project 3 Plotly Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R)- Created a simple plotly graph to allow the user to see what the total WCSS was for each cluster combination. In Create Elbow Graph code.
 
 ------------------------------------------------------------------------
 
@@ -428,7 +436,9 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   I felt that the multi-step interactivity in our shiny app on the U.S.'s yearly energy output more than demonstrated that I have a strong knowledge of reactivity. Instead of having a series of user input prompts that displayed the specifically requested output, the output was dynamic and
+I felt that the multi-step interactivity in our shiny app on the U.S.'s yearly energy output more than demonstrated that I have a strong knowledge of reactivity. Instead of having a series of user input prompts that displayed the specifically requested output, the output was dynamic and automatically displayed the changed inputs from the user.
+
+[**Project 1 Example**](https://github.com/nberzinsCP/Project1-STAT431/blob/main/app.R)
 
 ------------------------------------------------------------------------
 
@@ -457,6 +467,18 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+Particularly for the latter half of the class, I needed non-standard evaluation for my functions to run properly when a user specified that the needed conclusions drawn between two particular variables, e.g. explanatory and response variables.
+
+[**Lab 5 Predict from Coefs Example**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/R/predict_from_coefs.R)
+
+[**Lab 5 Multiple Linear Regression Example**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/commit/c660e1ee631d62f850a4c8cd419c13109ff7dc2e)
+
+In both project 2 and project, functional programming was necessary to clarify my workflow and strengthen the readability of my code.
+
+[**Project 2 Example**](https://github.com/BLauf/STAT431-project-2-master/blob/main/R/visualFunctions.R) **-** Creating the leaflet map of each countries scores required me to break up the workflow with two separate functions: getCountryLatLong() which simply had the stored lat long values for each country, and getCountryGoals() which worked on splitting up, organizing, and rejoining one of the data sets in our project to accurately display the information such that it could be ported into Leaflet.
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and On
+
 ------------------------------------------------------------------------
 
 ## \[SD-2\] Package creation:
@@ -468,7 +490,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 5 
+my_level <- 4
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "SD-2", 
@@ -479,7 +501,15 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Reference the struggle that was lab 4. Show the initial failure of trying to use ReadRDS() to pull from the ext. int data folder which eventually only lead to reading in the names of the files as opposed to the three datasets associated with the assignment. Then manually adding and removing folders from the initial project's folder options to match the required workflow for our functions to be able to reference the datasets.
+Package creation and documentation all demonstrated above in all projects, as well as in labs 4, 5, and 7.
+
+[**Lab 5 Linear Regression Unit Tests**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/tests/testthat/test-linear_regression.R)
+
+[**Project 2 Unit Tests**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/tests/testthat/test-linear_regression.R)
+
+Reference the struggle that was lab 4. Show the initial failure of trying to use ReadRDS() to pull from the ext. int data folder which eventually only lead to reading in the names of the files as opposed to the three datasets associated with the assignment. Then manually adding and removing folders from the initial project's folder options to match the required workflow for our functions to be able to reference the datasets.
+
+When initially working with packages in lab 4, I spent an inordinate amount of time learning how folders are organized in package creation. This rabbit hole came from me wanting to understand how a user would be able to install a package and then have access to the data that came with the package. I initially thought that creating my own "data" folder and storing the .csvs within that folder would allow the data to be user accessible (seen [**here**](https://github.com/BLauf/STAT431-project-2-master/commit/1bdc8b2c101ad4292882ca41880c84464dea76a9)). However, I quickly learned through [**CRAN's Writing R Extensions Manual**](https://cran.r-project.org/doc/manuals/R-exts.html#Data-in-packages)that the data subdirectory (either manually or automatically created) "should not be used for other data files needed by" a package. It then recommended I follow more typical convention by creating the inst/extdata directory for such purposes which allow for the contents within this subdirectory to be directly copied into the installation directory (functionality specific to inst).
 
 ------------------------------------------------------------------------
 
@@ -507,6 +537,14 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+Although some portions of the code were pushed by my group mate Ben Laufer, we both worked extensively in each others' delegated portion of the assignments and felt that we both had a strong understanding of each others code's functionality.
+
+[**Lab 5 Slr/Mlr Implementation of Matrix Multiplication**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/R/linear_regression.R)
+
+[**Lab 5 Slr/Mlr Gradient Descent**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/R/linear_regression_alt.R)
+
+[**Lab 5 Ridge Regression**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/R/ridge_regression.R)
+
 ------------------------------------------------------------------------
 
 ## \[MO-2\] Object structures:
@@ -516,7 +554,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 4
+my_level <- 3
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "MO-2", 
@@ -527,7 +565,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Here reference the hierarchical clustering function made for lab 7. Demonstrate how I switched back from dist() matrices to normal matrices and directly manipulated the distance matrix to create an efficient way of establishing the hierarchical clustering sequence for a given data set.
+Same justification as in MO-1
 
 ------------------------------------------------------------------------
 
@@ -555,6 +593,8 @@ portfolio_levels <- portfolio_levels %>%
 ### Level: `r my_level`
 
 ### Justification
+
+Same Justification as in MO-1/2
 
 ------------------------------------------------------------------------
 
@@ -618,6 +658,10 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and on
+
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/lab-7-clustering-methods-Nils-Fork/blob/master/R/hier_clust.R)
+
 ------------------------------------------------------------------------
 
 # Code Design (CD):
@@ -655,7 +699,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 0
+my_level <- 3
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "CD-2", 
@@ -665,6 +709,33 @@ portfolio_levels <- portfolio_levels %>%
 ### Level: `r my_level`
 
 ### Justification
+
+As seen in Project 3, I use a variety of intermediate objects to temporarily store information to be passed onto helper functions or to aide the final calculation of, for example, a cluster combinations WCSS. Also within Project 3, one can see the through the progression of the elbow_dat variable (starting line 149) that I go through a variety of conversions to produce the WBSS for each cluster value:
+
+```{r, eval = false}
+#matrix
+elbow_dat <- dat |> select({{explanatory}}, {{response}}) |> as.matrix()
+...
+#data frame
+clusters <- data.frame(clusters = kmeanspp(elbow_dat, i))
+...
+#list of dfs
+split_clust <- split_clust <- split(clusters, clusters$clusters)
+...
+#list of dfs 
+og_values <- map(split_clust, ~ getOriginalValues(.x$obs_num,
+                                                  data.frame(elbow_dat),
+                                                  {{explanatory}},
+                                                  {{response}}))
+...
+#Numerical Vector
+cluster_ss <- map_int(og_values, ~getWCSS(.x))
+...
+#Integer
+wcss <- cbind(seq(from = 2, to = length(wcss) + 1), wcss)
+```
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and on
 
 ------------------------------------------------------------------------
 
@@ -686,6 +757,22 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+When creating the elbow graph to help the user manually decide the number of clusters to choose from, I found it beneficial to break the workflow up into 3 parts: Main createElbowGraph() function that will be representative of the structure of the algorithm, getOriginalValues() which takes the list of clusters and returns the original values of the data but in the same order (to represent which points belong to which cluster), and getWCSS() which takes the within cluster sum of squares and totals them to spit out the total WCSS for that \# of clusters.
+
+Both getOriginalValues() and getWCSS() use mapping functions to streamline the looping process of returning original values from data in a cluster and calculating the WCSS. getOriginalValues() uses the standard map() function to return a list of lists so that the ordering of the clusters is preserved, whereas getWCSS() uses map_int() to return an integer vector with each value representing a single cluster's squared euclidean distances.
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and on
+
+Helper functions were also key to a good workflow in Lab 4 and Project 2
+
+-   Helper function that pulls the csvs from the inst/extdata directory
+
+-   Helper function that returns a country's total home/away goals scored in all world cup competitions
+
+-   Helper Function that returns a country's latitude and longitude
+
+[**Lab4/Project 2 Example**](https://github.com/BLauf/STAT431-project-2-master/blob/main/R/visualFunctions.R)
+
 ------------------------------------------------------------------------
 
 ## \[CD-4\] Algorithmic process:
@@ -706,6 +793,20 @@ portfolio_levels <- portfolio_levels %>%
 ### Level: `r my_level`
 
 ### Justification
+
+My work in Project 3 was a strong example of having clean and efficient loops while also having built in checks for possible user-error problems. I have a simple for-loop that iterates through the maximum number of clusters the user wants to analyze which then calculate the within cluster sum of squares for each cluster combination. In project 3, I also implemented checks (if then stop() statements) on what value of kmax the user chose, setting a lower limit of 0 and an upper limit on the \# of rows present in the data provided.
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and On
+
+In lab 7, I produce the hierarchical clustering method. And while the draft of my code that I submitted had various redundancies in loops that could have been vectorized, it still demonstrated my ability to update stopping conditions (within a while loop) by manipulating the length of a list of lists that held the indices of each cluster.
+
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/lab-7-clustering-methods-Nils-Fork/blob/master/R/hier_clust.R)
+
+In Lab 4, we implemented a variety of user input checks to ensure that any potential users wouldn't break the code by inputting any erroneous values. In the getMatchInfo(id), I simply insure that the user is inputting a numeric value, seeing as the id values were numerical. The winningTeam check edit was one that my group mates originally wrote, but that I edited to correctly catch when the user was inputting any invalid world cup years (every four years starting 1930).
+
+[**Lab 4 getMatchInfo(id) Check**](https://github.com/BLauf/STAT431-project-2-master/commit/1473d072b5efc6ac951820803e03cc875c534eb8)
+
+[**Lab 4 winningTeam Check**](https://github.com/BLauf/STAT431-project-2-master/commit/8455154a2520e02466527714fe8b840ad1d2e626)
 
 ------------------------------------------------------------------------
 

@@ -1,12 +1,12 @@
 {
-    "id": "FB3E1CBF",
-    "path": "C:/Users/nils/OneDrive/Desktop/Cal Poly/2022-2023/Spring Quarter/STAT 431/Week 10/CustomCluster/R/AbstractCluster.R",
+    "id": "2179C817",
+    "path": "C:/Users/nils/OneDrive/Desktop/Cal Poly/2022-2023/Spring Quarter/STAT 431/Week 5/STAT431-lab-4-rpack-master/R/summaryFunctions.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "840947871",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1686638818733.0,
+    "created": 1686696180211.0,
     "source_on_save": false,
     "relative_order": 3,
     "properties": {
@@ -14,11 +14,11 @@
         "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1686377561,
+    "lastKnownWriteTime": 1683784586,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1686377561,
+    "last_content_update": 1683784586,
     "read_only": false,
     "read_only_alternatives": []
 }

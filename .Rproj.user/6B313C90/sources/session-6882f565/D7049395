@@ -1,19 +1,19 @@
 {
-    "id": "D2AD7DA0",
+    "id": "D7049395",
     "path": "C:/Users/nils/OneDrive/Desktop/Cal Poly/2022-2023/Spring Quarter/STAT 431/Week 5/STAT431-lab-4-rpack-master/R/visualFunctions.R",
     "project_path": null,
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1686645059251.0,
+    "created": 1686698939433.0,
     "source_on_save": false,
-    "relative_order": 5,
+    "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "162,28",
-        "scrollLine": "0"
+        "cursorPosition": "318,22",
+        "scrollLine": "312"
     },
     "folds": "",
     "lastKnownWriteTime": 1686645823,
