@@ -88,7 +88,7 @@ Although I completed the APIs practice assignment and lab to a degree that I fee
 
 [**Challenge 3 API Code**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Challenge%203%20APIs.qmd#L4)
 
-Video of me debugging gradient descent code:
+Video of me debugging gradient descent code using browser():
 
 {{< video https://www.youtube.com/watch?v=MpEPSdLZ4kk >}}
 
@@ -565,6 +565,8 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+Same justification as in MO-1
+
 ------------------------------------------------------------------------
 
 # Algorithms and Iteration (AI):
@@ -581,7 +583,7 @@ portfolio_levels <- portfolio_levels %>%
 
 ```{r, include = FALSE}
 ## Fill in the line below with your self-assigned level for this objective.
-my_level <- 2
+my_level <- 3
 
 portfolio_levels <- portfolio_levels %>%
   bind_rows(c(Objective = "AI-1", 
@@ -591,6 +593,10 @@ portfolio_levels <- portfolio_levels %>%
 ### Level: `r my_level`
 
 ### Justification
+
+Same Justification as in MO-1/2
+
+[**Clever Way to Set Starting Slope/Intercept**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Smart%20Way%20to%20Set%20Slope%20And%20Intercept.R)
 
 ------------------------------------------------------------------------
 
@@ -613,6 +619,18 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/lab-7-clustering-methods-Nils-Fork/blob/master/R/hier_clust.R) - Before Pre-Vectorized
+
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Hierarchical%20Updated.R)- Vectorized (not fully functional)
+
+Although this Gradient Descent implementation sets a maximum on the number of iterations allowed, a simple adjustment to the loop condition would allow a user to achieve perfect convergence. By using a while loop as opposed to a for loop, and setting the the while condition to check if the change in the slope was greater than a minimum condition (e.g. .0001).
+
+[**Lab 5 Slr/Mlr Gradient Descent**](https://github.com/Cal-Poly-Advanced-R/lab-5-regression-nberzinsCP/blob/master/R/linear_regression_alt.R)
+
+In project 3, I allowed users to specify how many clusters they wanted to include when creating the elbow graph. Another easy way of implementing randomness or user input in the gradient descent would be to specify the learning rate or error boundary.
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and on
+
 ------------------------------------------------------------------------
 
 ## \[AI-3\] Generative art:
@@ -633,7 +651,35 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   For computing my trajectory curves donut, I took reference from online material that allowed me to use the Rcpp package to more efficiently run huge graphics. **TALK MORE ABOUT WHY C++ IS FASTER UNDER THE HOOD AND HOW IN THIS PARTICULAR INSTANCE IT HELPED ME RUN MY CODE IN A MORE EFFICIENT MANNER THAN IF I HAD RUN IT IN R**
+[**Generative Art Lab**](https://github.com/nberzinsCP/GenerativeArt/blob/main/Lab_8_Generative_Art.qmd)
+
+My Most Recent Order From SloDoCo (Trajectory Curves Doughnut):
+
+-   Uses Rcpp package which allows for faster run times due to under the hood operations (or lack thereof)
+
+-   By applying translations or alternative trigonometric functions to lines 25 and 26, you are able to alter the length, width, and shape of the "doughnut". Multiplying positive coefficients to the sin() functions leads to a "taller" doughnut, whereas multiplying positive coefficients to the cos() functions leads to a "wider" doughnut. And altering the 4 coefficients (a, b, c, and d) will either increase or decrease the magnitude in which the doughnut becomes "taller" or "wider"
+
+The Last Braincell Graphing Judo Economic Barriers of Entry
+
+-   Entirely generated from the Jasmines package.
+
+    -   entity_circle() creates a radial display of data from which the unfold and style commands take reference
+
+    -   unfold_meander() creates the random pathing visible in the strands of the art piece
+
+    -   style_ribbon() adds the strand link texture to the path the points follow as produced by unfold_meander()
+
+Horribly Designed Tulip Field
+
+-   Produced entirely from ggplot2
+
+    -   geom_point() produces the vibrantly colored points visible around the outskirts of the circle
+
+    -   geom_line(), after adding an alpha level to change the line's opacity, creates that trail as if the points moved from one to the other.
+
+    -   theme_void() allowed me to remove any axis or labels in one function call
+
+    -   coord_polar() put the points on a polar (radial) axis, creating the circular effect
 
 ------------------------------------------------------------------------
 
@@ -684,7 +730,17 @@ portfolio_levels <- portfolio_levels %>%
 
 ### Justification
 
--   Talk about what the hierarchical clustering method looked like before an after. (tons of for loops/nested for loops vs. mostly vectorized code aside from one conditional while loop)
+Before and After Vectorizing the Hierarchical Clustering Method
+
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/lab-7-clustering-methods-Nils-Fork/blob/master/R/hier_clust.R) - Before Pre-Vectorized
+
+[**Hierarchical Clustering Example**](https://github.com/nberzinsCP/ReinforcementsForPortfolioWar/blob/main/Hierarchical%20Updated.R)- Vectorized (not fully functional)
+
+As mentioned above, using the C++ port in R to more effectively compute 10,000,000 points on a trajectory curves graph.
+
+Vectorized functions in the createElbowGraph() function as well.
+
+[**Project 3 Example**](https://github.com/ScottFB101/CustomCluster/blob/main/R/AbstractCluster.R) - Lines 123 and on
 
 ------------------------------------------------------------------------
 
@@ -708,7 +764,7 @@ portfolio_levels <- portfolio_levels %>%
 
 As seen in Project 3, I use a variety of intermediate objects to temporarily store information to be passed onto helper functions or to aide the final calculation of, for example, a cluster combinations WCSS. Also within Project 3, one can see the through the progression of the elbow_dat variable (starting line 149) that I go through a variety of conversions to produce the WBSS for each cluster value:
 
-```{r, eval = false}
+```{r, eval = FALSE}
 #matrix
 elbow_dat <- dat |> select({{explanatory}}, {{response}}) |> as.matrix()
 ...
